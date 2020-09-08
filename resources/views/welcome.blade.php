@@ -2,7 +2,7 @@
 
 @section('content')
     @if (Auth::check())
-        {{ Auth::user()->name }}
+        @include('reviews.index')
     @else
         <div class="center jumbotron">
             <div class="text-center">
