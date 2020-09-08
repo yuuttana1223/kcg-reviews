@@ -6,19 +6,19 @@
 
     <div class="row">
         <div class="col-sm-6">
-            {!! Form::model($review, ['route' => 'reviews.store']) !!}
+            {{ Form::model($review, ['route' => 'reviews.store']) }}
 
                 <div class="form-group">
-                    {!! Form::label('lesson', '授業名:', ['class' => 'mb-0 font-weight-bold']) !!}
-                    {!! Form::text('lesson', null, ['class' => 'form-control', 'placeholder' => '正式名称（半角・全角・大文字・小文字など）kingで確認']) !!}
+                    {{ Form::label('lesson', '授業名:', ['class' => 'mb-0 font-weight-bold']) }}
+                    {{ Form::text('lesson', null, ['class' => 'form-control', 'placeholder' => '正式名称（半角・全角・大文字・小文字など）kingで確認']) }}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('teacher', '先生の名前:', ['class' => 'mb-0 font-weight-bold']) !!}
-                    {!! Form::text('teacher', null, ['class' => 'form-control']) !!}
+                    {{ Form::label('teacher', '先生の名前:', ['class' => 'mb-0 font-weight-bold']) }}
+                    {{ Form::text('teacher', null, ['class' => 'form-control']) }}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('department', '自分の学科:', ['class' => 'mb-0 font-weight-bold']) !!}
-                    {!! Form::text('department', null, ['class' => 'form-control']) !!}
+                    {{ Form::label('department', '自分の学科:', ['class' => 'mb-0 font-weight-bold']) }}
+                    {{ Form::text('department', null, ['class' => 'form-control']) }}
                 </div>
                 
                 <p class="mb-0 font-weight-bold">授業形式:</p>
@@ -87,17 +87,17 @@
     				{{ Form::label('has_taken_unit-five', '大変易しい', ['class' => 'form-check-label']) }}
 				</div>
             	<div class="form-group">
-                    {!! Form::label('good_point', '良かった点:', ['class' => 'mt-2 font-weight-bold']) !!}
-                    {!! Form::textarea('good_point', null, ['class' => 'form-control']) !!}
+                    {{ Form::label('good_point', '良かった点:', ['class' => 'mt-2 font-weight-bold']) }}
+                    {{ Form::textarea('good_point', null, ['class' => 'form-control']) }}
                 </div>
             	<div class="form-group">
-                    {!! Form::label('bad_point', '悪かった点:', ['class' => 'font-weight-bold']) !!}
-                    {!! Form::textarea('bad_point', null, ['class' => 'form-control']) !!}
+                    {{ Form::label('bad_point', '悪かった点:', ['class' => 'font-weight-bold']) }}
+                    {{ Form::textarea('bad_point', null, ['class' => 'form-control']) }}
                 </div>
 				<div>
-	                {!! Form::submit('投稿', ['class' => 'btn btn-primary btn-block']) !!}
+	                {{ Form::submit('投稿', ['class' => 'btn btn-primary btn-block']) }}
 				</div>
-            {!! Form::close() !!}
+            {{ Form::close() }}
         </div>
     </div>
 @endsection

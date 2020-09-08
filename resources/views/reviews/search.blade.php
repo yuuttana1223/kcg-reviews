@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-	<h1 class="mb-4 ">授業評価一覧</h1>
+	<h1 class="mb-4 ">{{ $keyword }}の検索結果</h1>
 	<div class="d-flex justify-content-between">
 		{{ link_to_route('reviews.create', '授業評価の投稿', [], ['class' => 'btn btn-primary']) }}
-		{{ Form::open(['route' => 'search', 'method' => 'get'])}}
+		{{ Form::open(['route' => 'search', 'method' => 'get']) }}
 			<div class="form-group">
-				{{ Form::input('text', 'keyword') }}
-				{{ Form::submit('検索', ['class' => 'btn btn-sm btn-primary']) }}
+				{{Form::input('text', 'keyword')}}
+				{{Form::submit('検索', ['class' => 'btn btn-sm btn-primary'])}}
 			</div>
 		{{Form::close()}}
 	</div>

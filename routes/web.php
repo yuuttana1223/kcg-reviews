@@ -21,4 +21,5 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('reviews', 'ReviewsController', ['except' => ['show']]);
+    Route::get('search', 'SearchController@index')->name('search');
 });
