@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Message;
 
+use App\Comment;
+
 class MessagesController extends Controller
 {
 	public function index()
@@ -50,7 +52,7 @@ class MessagesController extends Controller
 	{
 		$user = \Auth::user();
 		$message = Message::findOrFail($id);
-		
+
 		return view('messages.show', [
 			'message' => $message,
 			'user' => $user,
@@ -72,13 +74,18 @@ class MessagesController extends Controller
 	
     public function update(Request $request, $id)
     {
+		$request->validate([
+			'title' => 'required|max:50',
+			'content' => 'required|max:255',
+		]);
+    	
         $message = Message::findOrFail($id);
         $message->title = $request->title;
         $message->content = $request->content;
         
         $message->save();
-
-        return redirect()->route('messages.index');
+	
+        return redirect()->route('messages.show', ['message' => $message]);
     }
     
     public function destroy($id)

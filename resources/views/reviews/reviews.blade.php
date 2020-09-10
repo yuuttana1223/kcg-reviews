@@ -13,7 +13,7 @@
 @foreach ($reviews as $review)
 	@if (count($reviews) > 0)
 		<div class="text-right mb-0 mt-4">
-			<span>{{ $review->user->name . ' (' . $review->created_at . ')' }}</span>
+			<span>投稿者 {{ $review->user->name . ' 投稿日時 ' . $review->created_at }}</span>
 		</div>
 		
 		<div class="row border border-dark rounded m-0">
@@ -59,7 +59,7 @@
 				<span style="word-wrap: break-word;">{{ $review->bad_point }}</span>
 			</p>
 		</div>
-		@if ($user->id === $review->user_id)
+		@if (\Auth::user()->id === $review->user_id)
 			<div class="d-flex justify-content-end">
 				{{ link_to_route('reviews.edit', '編集', ['review' => $review->id], ['class' => 'btn btn-light']) }}
 				

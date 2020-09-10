@@ -24,4 +24,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('search', 'SearchController@index')->name('search');
     
     Route::resource('messages', 'MessagesController');
+    Route::resource('comments', 'CommentsController', ['only' => ['store', 'destroy']]);
 });

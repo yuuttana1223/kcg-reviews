@@ -4,10 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model
+class Comment extends Model
 {
 	protected $fillable = [
-		'title',
 		'content',
 	];
 	
@@ -15,9 +14,9 @@ class Message extends Model
 	{
 		return $this->belongsTo(User::class);
 	}
-	public function comments()
-	{
-		return $this->hasMany(Comment::class);
-	}
 	
+	public function message()
+	{
+		return $this->belongsTo(Message::class);
+	}
 }
